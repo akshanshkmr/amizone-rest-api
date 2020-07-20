@@ -142,9 +142,9 @@ def timetable():
     }
 
 
-app = Flask("amizone")
+app = Flask(__name__)
 
-@app.route('/index',methods=['GET'])
+@app.route('/',methods=['GET'])
 def test():
     return "Hello World"
 
