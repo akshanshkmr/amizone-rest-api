@@ -120,9 +120,6 @@ def exam_schedule():
     courseTitle = [c.text.strip() for c in b.find_all(attrs={'data-title': "Course Title"})]
     ExamDate = [c.text.strip() for c in b.find_all(attrs={'data-title': "Exam Date"})]
     Time = [c.text.strip() for c in b.find_all(attrs={'data-title': "Time"})]
-    # print("CourseCode  "+"Course Title"+" "*49+"Exam Date  "+"Time")
-    # for i in range(len(courseCode)):
-    #      print("{:11s} {:60s} {:10} {}".format(courseCode[i],courseTitle[i],ExamDate[i],Time[i]))
     return {
         "courseCode": courseCode,
         "courseTitle": courseTitle,
@@ -147,9 +144,9 @@ def timetable():
 
 app = Flask("amizone")
 
-@app.route('/test',methods=['POST'])
+@app.route('/index',methods=['GET'])
 def test():
-    return "true"
+    return "Hello World"
 
 @app.route('/login',methods=['POST'])
 def log():
