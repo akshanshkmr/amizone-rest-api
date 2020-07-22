@@ -64,10 +64,14 @@ def my_courses():
     syllabus   = [c.decode_contents() for c in b.find_all(attrs={'data-title': "Course Syllabus"})]
     # this returned a list(string) of anchor tags so the below code is to extract href from it
     syllabus   = [i[i.find('"')+1:i.find('"',i.find('"')+1)] for i in syllabus]
-    percentage = [float(i[i.find("(")+1:i.find(")")]) for i in attendance]
-    # print("Course code     Course name"+" "*50+"Attendance      Syllabus Download Url")
-    # for i in range(len(courseCode)):
-    #     print("{:15s} {:60s} {:15s} {}".format(courseCode[i], courseName[i], attendance[i], syllabus[i]))
+    # percentage = [float(i[i.find("(")+1:i.find(")")]) for i in attendance]
+    percentage=[]
+    for i in attendance:
+        try:
+            x=float(i[i.find("(")+1:i.find(")")])
+            percentage.append(x)
+        except:
+            percentage.append(0.0)
     return {
         "CourseCode":courseCode,
         "CourseName":courseName,
