@@ -72,7 +72,7 @@ def my_courses():
             x=float(i[i.find("(")+1:i.find(")")])
             percentage.append(x)
         except:
-            percentage.append(0.0)
+            percentage.append(100.0)
     return {
         "CourseCode":courseCode,
         "CourseName":courseName,
