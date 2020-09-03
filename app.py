@@ -1,6 +1,7 @@
 import requests
 import bs4
 from flask import Flask,request
+from datetime import datetime as date
 
 URL         = "https://student.amizone.net/"
 URL_LOGIN   = "https://student.amizone.net/Login/Login"
@@ -135,8 +136,13 @@ def exam_schedule():
 def timetable():
     a=r.get("https://student.amizone.net/TimeTable/Home?X-Requested-With=XMLHttpRequest")
     b = bs4.BeautifulSoup(a.content, 'html.parser')
+
     # get timetable from active pane
     b=b.find(attrs={"class":"tab-pane"})
+    # get timetable of current day
+    # b=b.find(attrs={'id':date.today().strftime("%A")})
+    # any of these will work
+
     courseCode = [x.text.strip() for x in b.find_all(attrs={"class":"course-code"})]
     courseTeacher = [c.text.strip() for c in b.find_all(attrs={'class': "course-teacher"})]
     classLocation = [x.text.strip() for x in b.find_all(attrs={"class":"class-loc"})]
