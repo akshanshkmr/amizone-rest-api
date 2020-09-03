@@ -138,9 +138,9 @@ def timetable():
     b = bs4.BeautifulSoup(a.content, 'html.parser')
 
     # get timetable from active pane
-    b=b.find(attrs={"class":"tab-pane"})
+    # b=b.find(attrs={"class":"tab-pane"})
     # get timetable of current day
-    # b=b.find(attrs={'id':date.today().strftime("%A")})
+    b=b.find(attrs={'id':date.today().strftime("%A")})
     # any of these will work
 
     courseCode = [x.text.strip() for x in b.find_all(attrs={"class":"course-code"})]
