@@ -160,7 +160,7 @@ app = Flask(__name__)
 @app.route('/',methods=['GET'])
 def test():
     return "<body bgcolor='rebeccapurple' style='color:white'></body>"\
-            "<h3><pre>Hello World!</pre></h3>" \
+            "<h2><pre>Hello World!</pre></h2>" \
             "<pre>Welcome to Amizone rest API!</pre>" \
             "<br>" \
             "<pre>While You are here, You might want to learn about the API Paths:</pre>" \
