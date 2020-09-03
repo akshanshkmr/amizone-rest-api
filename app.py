@@ -159,7 +159,28 @@ app = Flask(__name__)
 
 @app.route('/',methods=['GET'])
 def test():
-    return "Hello World"
+    return "<body bgcolor='rebeccapurple' style='color:white'></body>"\
+            "<h3><pre>Hello World!</pre></h3>" \
+            "<pre>Welcome to Amizone rest API!</pre>" \
+            "<br>" \
+            "<pre>While You are here, You might want to learn about the API Paths:</pre>" \
+            "<pre><mark style='background-color:dodgerblue;'>GET</mark><pre>" \
+            "<pre>https://amizone-api.herokuapp.com/          : Will get you here</pre>" \
+            "<br>" \
+            "<pre><mark style='background-color:springgreen;'>POST</mark></pre>" \
+            "<p>Form data:</p>" \
+            "<pre>username=amizone_username</pre>" \
+            "<pre>password=amizone_password</pre>" \
+            "<br>" \
+            "<pre>https://amizone-api.herokuapp.com/login     : To validate username and Password</pre>" \
+            "<pre>https://amizone-api.herokuapp.com/profile   : To get User's Profile</pre>"\
+            "<pre>https://amizone-api.herokuapp.com/timetable : To get Current timetable</pre>" \
+            "<pre>https://amizone-api.herokuapp.com/courses   : To get Courses information</pre>" \
+            "<pre>https://amizone-api.herokuapp.com/faculty   : To get Faculties details</pre>" \
+            "<pre>https://amizone-api.herokuapp.com/schedule  : To get Exam Schedule</pre>" \
+            "<pre>https://amizone-api.herokuapp.com/results   : To get Latest Exam resulta</pre>" \
+            "<br>" \
+            "<pre align='center'>© All Rights Reserved Akshansh Kumar</pre>"
 
 @app.route('/login',methods=['POST'])
 def log():
