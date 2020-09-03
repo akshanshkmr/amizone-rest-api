@@ -142,7 +142,7 @@ def timetable():
     # get timetable of current day
     b=b.find(attrs={'id':date.today().strftime("%A")})
     # any of these will work
-        if b is None:
+    if b is None:
         courseCode = []
         courseTeacher = []
         classLocation = []
