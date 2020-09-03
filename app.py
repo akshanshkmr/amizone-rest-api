@@ -142,18 +142,23 @@ def timetable():
     # get timetable of current day
     b=b.find(attrs={'id':date.today().strftime("%A")})
     # any of these will work
-
-    courseCode = [x.text.strip() for x in b.find_all(attrs={"class":"course-code"})]
-    courseTeacher = [c.text.strip() for c in b.find_all(attrs={'class': "course-teacher"})]
-    classLocation = [x.text.strip() for x in b.find_all(attrs={"class":"class-loc"})]
-    Time = [x.text.strip() for x in b.find_all(attrs={"class": "class-time"})]
+        if b is None:
+        courseCode = []
+        courseTeacher = []
+        classLocation = []
+        Time = []
+    else:
+        courseCode = [x.text.strip() for x in b.find_all(attrs={"class":"course-code"})]
+        courseTeacher = [c.text.strip() for c in b.find_all(attrs={'class': "course-teacher"})]
+        classLocation = [x.text.strip() for x in b.find_all(attrs={"class":"class-loc"})]
+        Time = [x.text.strip() for x in b.find_all(attrs={"class": "class-time"})]
+    
     return {
         "courseCode": courseCode,
         "courseTeacher": courseTeacher,
         "classLocation": classLocation,
         "Time":Time,
     }
-
 
 app = Flask(__name__)
 
