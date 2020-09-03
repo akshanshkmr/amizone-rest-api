@@ -135,6 +135,8 @@ def exam_schedule():
 def timetable():
     a=r.get("https://student.amizone.net/TimeTable/Home?X-Requested-With=XMLHttpRequest")
     b = bs4.BeautifulSoup(a.content, 'html.parser')
+    # get timetable from active pane
+    b=b.find(attrs={"class":"tab-pane"})
     courseCode = [x.text.strip() for x in b.find_all(attrs={"class":"course-code"})]
     courseTeacher = [c.text.strip() for c in b.find_all(attrs={'class': "course-teacher"})]
     classLocation = [x.text.strip() for x in b.find_all(attrs={"class":"class-loc"})]
