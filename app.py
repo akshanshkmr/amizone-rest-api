@@ -21,7 +21,7 @@ class Cookies:
             "_Password": pwd,
             "__RequestVerificationToken": rvt
         }
-        logged = s.post(URL_LOGIN,data=data)
+        logged = s.post(URL,data=data)
         self.saveCookie(s.cookies)
         if(logged.url==URL_HOME):
             return 200
