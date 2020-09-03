@@ -159,7 +159,7 @@ app = Flask(__name__)
 
 @app.route('/',methods=['GET'])
 def test():
-    return "Hello World"
+    return "<H1>Hello World</H1>"
 
 @app.route('/login',methods=['POST'])
 def log():
