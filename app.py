@@ -3,9 +3,9 @@ import bs4
 from flask import Flask,request
 from datetime import datetime as date
 
-URL         = "https://student.amizone.net/"
+URL         = "https://s.amizone.net"
 URL_LOGIN   = "https://student.amizone.net/Login/Login"
-URL_HOME    = "https://student.amizone.net/Home"
+URL_HOME    = "https://s.amizone.net/Home"
 
 class Cookies:
     def saveCookie(self,requestsCookieJar):
